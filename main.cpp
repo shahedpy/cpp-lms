@@ -2,6 +2,27 @@
 
 using namespace std;
 
+class Book{
+    public:
+        string title;
+        string author;
+        string publisher;
+        int year;
+        int pages;
+        int price;
+        int stock;
+};
+
+class Student{
+    public:
+        string name;
+        string rollNo;
+        string branch;
+        int year;
+        int semester;
+};
+
+
 int main() {
     cout << "Welcome to LMS" << endl;
     int choice;
