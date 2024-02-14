@@ -62,6 +62,7 @@ void bookList(){
     } else {
         cout << "List of Books in the Library:" << endl;
         for (const auto &book : library) {
+            cout << "---------------------------" << endl;
             cout << "Title: " << book.title << endl;
             cout << "Author: " << book.author << endl;
             cout << "Publisher: " << book.publisher << endl;
@@ -171,3 +172,9 @@ int main() {
     } while (choice != 7);
     return 0;
 }
+
+
+
+// Search Functionality
+// Update Book Information
+// Fine Calculation
