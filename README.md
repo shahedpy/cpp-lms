@@ -1,25 +1,27 @@
 # Library Management System
 
-## Introduction
+## Project Proposal
 
-## Objectives
+### Introduction
 
-## Scope
+### Objectives
 
-## Methodology
+### Scope
 
-## Technology Stack
+### Methodology
 
-## Deliverables
+### Technology Stack
 
-## Timeline
+### Deliverables
 
-## Budget
+### Timeline
 
-## Conclusion
+### Budget
 
-## Approval
+### Conclusion
 
-## Project Team
+### Approval
 
-## References
+### Project Team
+
+### References
