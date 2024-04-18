@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <vector>
 
 using namespace std;
@@ -40,7 +41,7 @@ void addBook() {
     cin >> newBook.price;
     cout << "Enter stock: ";
     cin >> newBook.stock;
-    
+
     library.push_back(newBook);
     ofstream outFile("books.txt", ios::app);
     if (outFile.is_open()) {
@@ -73,14 +74,14 @@ void bookList(){
         cout << "List of Books in the Library:" << endl;
         for (const auto &book : library) {
             cout << "---------------------------" << endl;
-            cout << "Title: " << book.title << endl;
-            cout << "Author: " << book.author << endl;
-            cout << "Publisher: " << book.publisher << endl;
-            cout << "Year: " << book.year << endl;
-            cout << "Price: " << book.price << endl;
-            cout << "Stock: " << book.stock << endl;
-            cout << "---------------------------" << endl;
+            cout << "Title:\t\t" << book.title << endl;
+            cout << "Author:\t\t" << book.author << endl;
+            cout << "Publisher:\t" << book.publisher << endl;
+            cout << "Year:\t\t" << book.year << endl;
+            cout << "Price:\t\t" << book.price << endl;
+            cout << "Stock:\t\t" << book.stock << endl;
         }
+        cout << "---------------------------" << endl;
     }
 }
 
@@ -138,7 +139,39 @@ void addStudent() {
     cout << "Student added successfully." << endl;
 }
 
+void readDataFromFile() {
+    ifstream inFile("books.txt");
+    if (inFile.is_open()) {
+        string line;
+        while (getline(inFile, line)) {
+            Book newBook;
+            stringstream ss(line);
+            getline(ss, newBook.title, ',');
+            getline(ss, newBook.author, ',');
+            getline(ss, newBook.publisher, ',');
+            ss >> newBook.year >> newBook.price >> newBook.stock;
+            library.push_back(newBook);
+        }
+        inFile.close();
+    } else {
+        cout << "Unable to open file to read book data." << endl;
+    }
+}
+void writeDataToFile() {
+    ofstream outFile("books.txt");
+    if (outFile.is_open()) {
+        for (const auto &book : library) {
+            outFile << book.title << "," << book.author << "," << book.publisher << ","
+                    << book.year << "," << book.price << "," << book.stock << "\n";
+        }
+        outFile.close();
+    } else {
+        cout << "Unable to open file to write book data." << endl;
+    }
+}
+
 int main() {
+    readDataFromFile();
     cout << ":::::::::::::::::::::::::::::::::::::::::::::::" << endl;
     cout << "::::::::::::::: Welcome to BUBT :::::::::::::::" << endl;
     cout << ":::::::::: Library Management System ::::::::::" << endl;
@@ -180,6 +213,7 @@ int main() {
             cout << "Invalid choice" << endl;
         }
     } while (choice != 7);
+    writeDataToFile();
     return 0;
 }
 
