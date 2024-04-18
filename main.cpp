@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 
 using namespace std;
@@ -39,8 +40,17 @@ void addBook() {
     cin >> newBook.price;
     cout << "Enter stock: ";
     cin >> newBook.stock;
+    
     library.push_back(newBook);
-    cout << "Book added successfully." << endl;
+    ofstream outFile("books.txt", ios::app);
+    if (outFile.is_open()) {
+        outFile << newBook.title << "," << newBook.author << "," << newBook.publisher << ","
+                << newBook.year << "," << newBook.price << "," << newBook.stock << "\n";
+        outFile.close();
+        cout << "Book added successfully." << endl;
+    } else {
+        cout << "Unable to open file to save book data." << endl;
+    }
 }
 
 void removeBook() {
