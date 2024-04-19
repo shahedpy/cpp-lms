@@ -15,7 +15,7 @@ public:
     int stock;
 };
 
-class Student {
+class Member {
 public:
     int intake;
     string id;
@@ -24,7 +24,7 @@ public:
 };
 
 vector<Book> library;
-vector<Student> students;
+vector<Member> members;
 
 void addBook() {
     Book newBook;
@@ -43,7 +43,7 @@ void addBook() {
     cin >> newBook.stock;
 
     library.push_back(newBook);
-    ofstream outFile("books.txt", ios::app);
+    ofstream outFile("books.csv", ios::app);
     if (outFile.is_open()) {
         outFile << newBook.title << "," << newBook.author << "," << newBook.publisher << ","
                 << newBook.year << "," << newBook.price << "," << newBook.stock << "\n";
@@ -62,6 +62,7 @@ void removeBook() {
         if (library[i].title == title) {
             library.erase(library.begin() + i);
             cout << "Book removed successfully." << endl;
+            cout << "---------------------------" << endl;
             return;
         }
     }
@@ -86,24 +87,24 @@ void bookList(){
 }
 
 void issueBook() {
-    string title, studentId;
+    string title, memberId;
     cout << "Enter the title of the book to issue: ";
     cin >> title;
-    cout << "Enter student ID: ";
-    cin >> studentId;
-    bool bookFound = false, studentFound = false;
+    cout << "Enter member ID: ";
+    cin >> memberId;
+    bool bookFound = false, memberFound = false;
     for (int i = 0; i < library.size(); i++) {
         if (library[i].title == title && library[i].stock > 0) {
             bookFound = true;
-            for (int j = 0; j < students.size(); j++) {
-                if (students[j].id == studentId) {
-                    studentFound = true;
-                    cout << "Book issued successfully to " << students[j].name << "." << endl;
+            for (int j = 0; j < members.size(); j++) {
+                if (members[j].id == memberId) {
+                    memberFound = true;
+                    cout << "Book issued successfully to " << members[j].name << "." << endl;
                     library[i].stock--;
                     return;
                 }
             }
-            cout << "Student not found." << endl;
+            cout << "Member not found." << endl;
             return;
         }
     }
@@ -125,22 +126,22 @@ void returnBook() {
     cout << "Book not found." << endl;
 }
 
-void addStudent() {
-    Student newStudent;
+void addMember() {
+    Member newMember;
     cout << "Enter ID: ";
-    cin >> newStudent.id;
+    cin >> newMember.id;
     cout << "Enter name: ";
-    cin >> newStudent.name;
+    cin >> newMember.name;
     cout << "Enter department: ";
-    cin >> newStudent.department;
+    cin >> newMember.department;
     cout << "Enter intake: ";
-    cin >> newStudent.intake;
-    students.push_back(newStudent);
-    cout << "Student added successfully." << endl;
+    cin >> newMember.intake;
+    members.push_back(newMember);
+    cout << "Member added successfully." << endl;
 }
 
 void readDataFromFile() {
-    ifstream inFile("books.txt");
+    ifstream inFile("books.csv");
     if (inFile.is_open()) {
         string line;
         while (getline(inFile, line)) {
@@ -158,7 +159,7 @@ void readDataFromFile() {
     }
 }
 void writeDataToFile() {
-    ofstream outFile("books.txt");
+    ofstream outFile("books.csv");
     if (outFile.is_open()) {
         for (const auto &book : library) {
             outFile << book.title << "," << book.author << "," << book.publisher << ","
@@ -181,7 +182,7 @@ int main() {
         cout << "1. Add book" << endl;
         cout << "2. Remove book" << endl;
         cout << "3. Book List" << endl;
-        cout << "4. Add student" << endl;
+        cout << "4. Add Member" << endl;
         cout << "5. Issue book" << endl;
         cout << "6. Return book" << endl;
         cout << "7. Exit" << endl;
@@ -198,7 +199,7 @@ int main() {
             bookList();
             break;
         case 4:
-            addStudent();
+            addMember();
             break;
         case 5:
             issueBook();
