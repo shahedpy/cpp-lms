@@ -171,7 +171,35 @@ void writeDataToFile() {
     }
 }
 
+bool login() {
+    string username, password;
+    int attempts = 0;
+    do {
+        cout << "Enter username: ";
+        cin >> username;
+        cout << "Enter password: ";
+        cin >> password;
+        if (username == "admin" && password == "admin") {
+            return true;
+        } else {
+            cout << "Invalid username or password." << endl;
+            attempts++;
+        }
+    } while (attempts < 3);
+    cout << "Maximum login attempts reached. Access denied." << endl;
+    return false;
+}
+
+void logout(bool& loggedIn){
+    loggedIn = false;
+    cout << "Logged out successfully." << endl;
+}
+
 int main() {
+    bool loggedIn = login();
+    if (!loggedIn) {
+        return 1;
+    }
     readDataFromFile();
     cout << ":::::::::::::::::::::::::::::::::::::::::::::::" << endl;
     cout << "::::::::::::::: Welcome to BUBT :::::::::::::::" << endl;
@@ -185,7 +213,7 @@ int main() {
         cout << "4. Add Member" << endl;
         cout << "5. Issue book" << endl;
         cout << "6. Return book" << endl;
-        cout << "7. Exit" << endl;
+        cout << "7. Logout" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
         switch (choice) {
@@ -208,7 +236,7 @@ int main() {
             returnBook();
             break;
         case 7:
-            cout << "Goodbye!" << endl;
+            logout(loggedIn);
             break;
         default:
             cout << "Invalid choice" << endl;
