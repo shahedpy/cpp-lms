@@ -145,7 +145,12 @@ void readDataFromFile() {
     ifstream inFile("books.csv");
     if (inFile.is_open()) {
         string line;
+        bool isFirstRow = true;
         while (getline(inFile, line)) {
+            if (isFirstRow) {
+                isFirstRow = false;
+                continue;
+            }
             Book newBook;
             stringstream ss(line);
             getline(ss, newBook.title, ',');
@@ -162,6 +167,7 @@ void readDataFromFile() {
 void writeDataToFile() {
     ofstream outFile("books.csv");
     if (outFile.is_open()) {
+        outFile << "Title,Author,Publisher,Year,Price,Stock\n";
         for (const auto &book : library) {
             outFile << book.title << "," << book.author << "," << book.publisher << ","
                     << book.year << "," << book.price << "," << book.stock << "\n";
