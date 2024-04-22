@@ -153,10 +153,16 @@ void readDataFromFile() {
             }
             Book newBook;
             stringstream ss(line);
+            string temp;
             getline(ss, newBook.title, ',');
             getline(ss, newBook.author, ',');
             getline(ss, newBook.publisher, ',');
-            ss >> newBook.year >> newBook.price >> newBook.stock;
+            getline(ss, temp, ',');
+            newBook.year = stoi(temp);
+            getline(ss, temp, ',');
+            newBook.price = stoi(temp);
+            getline(ss, temp, ',');
+            newBook.stock = stoi(temp);
             library.push_back(newBook);
         }
         inFile.close();
