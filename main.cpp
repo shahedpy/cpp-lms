@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <unistd.h>
 
 using namespace std;
 
@@ -177,8 +178,8 @@ bool login() {
     do {
         cout << "Enter username: ";
         cin >> username;
-        cout << "Enter password: ";
-        cin >> password;
+        password = getpass("Enter Password: ");
+
         if (username == "admin" && password == "admin") {
             return true;
         } else {
