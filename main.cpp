@@ -1,61 +1,14 @@
-// main.cpp
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <vector>
 #include <unistd.h>
+
 #include "book.cpp"
+#include "member.cpp"
+#include "auth.cpp"
 
 using namespace std;
-
-class Member {
-public:
-    int intake;
-    string id;
-    string name;
-    string department;
-};
-
-vector<Member> members;
-
-void addMember() {
-    Member newMember;
-    cout << "Enter ID: ";
-    cin >> newMember.id;
-    cout << "Enter name: ";
-    cin >> newMember.name;
-    cout << "Enter department: ";
-    cin >> newMember.department;
-    cout << "Enter intake: ";
-    cin >> newMember.intake;
-    members.push_back(newMember);
-    cout << "Member added successfully." << endl;
-}
-// auth.cpp
-
-bool login() {
-    string username, password;
-    int attempts = 0;
-    do {
-        cout << "Enter username: ";
-        cin >> username;
-        password = getpass("Enter Password: ");
-
-        if (username == "admin" && password == "admin") {
-            return true;
-        } else {
-            cout << "Invalid username or password." << endl;
-            attempts++;
-        }
-    } while (attempts < 3);
-    cout << "Maximum login attempts reached. Access denied." << endl;
-    return false;
-}
-
-void logout(bool& loggedIn){
-    loggedIn = false;
-    cout << "Logged out successfully." << endl;
-}
 
 void issueBook() {
     string title, memberId;

@@ -1,4 +1,3 @@
-// book.cpp
 using namespace std;
 
 class Book {
