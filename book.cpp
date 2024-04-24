@@ -1,3 +1,6 @@
+// book.cpp
+#include "member.cpp"
+
 using namespace std;
 
 class Book {
@@ -72,6 +75,34 @@ void bookList(){
         cout << "---------------------------" << endl;
     }
 }
+
+void issueBook(vector<Member> members) {
+    string title, memberId;
+    cout << "Enter the title of the book to issue: ";
+    cin >> title;
+    cout << "Enter member ID: ";
+    cin >> memberId;
+    
+    bool bookFound = false, memberFound = false;
+    for (int i = 0; i < library.size(); i++) {
+        if (library[i].title == title && library[i].stock > 0) {
+            bookFound = true;
+            for (int j = 0; j < members.size(); j++) {
+                if (members[j].id == memberId) {
+                    memberFound = true;
+                    cout << "Book issued successfully to " << members[j].name << "." << endl;
+                    library[i].stock--;
+                    return;
+                }
+            }
+            cout << "Member not found." << endl;
+            return;
+        }
+    }
+    if (!bookFound)
+        cout << "Book not found or out of stock." << endl;
+}
+
 
 void returnBook() {
     string title;

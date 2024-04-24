@@ -1,42 +1,20 @@
 #include <iostream>
+#include <string>
 #include <fstream>
 #include <sstream>
 #include <vector>
 #include <unistd.h>
 
 #include "book.cpp"
-#include "member.cpp"
 #include "auth.cpp"
 
 using namespace std;
 
-void issueBook() {
-    string title, memberId;
-    cout << "Enter the title of the book to issue: ";
-    cin >> title;
-    cout << "Enter member ID: ";
-    cin >> memberId;
-    bool bookFound = false, memberFound = false;
-    for (int i = 0; i < library.size(); i++) {
-        if (library[i].title == title && library[i].stock > 0) {
-            bookFound = true;
-            for (int j = 0; j < members.size(); j++) {
-                if (members[j].id == memberId) {
-                    memberFound = true;
-                    cout << "Book issued successfully to " << members[j].name << "." << endl;
-                    library[i].stock--;
-                    return;
-                }
-            }
-            cout << "Member not found." << endl;
-            return;
-        }
-    }
-    if (!bookFound)
-        cout << "Book not found or out of stock." << endl;
-}
-
 int main() {
+
+    vector<Member> members;
+
+
     bool loggedIn = login();
     if (!loggedIn) {
         return 1;
@@ -68,10 +46,10 @@ int main() {
             bookList();
             break;
         case 4:
-            addMember();
+            addMember(members);
             break;
         case 5:
-            issueBook();
+            issueBook(members);
             break;
         case 6:
             returnBook();

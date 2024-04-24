@@ -1,3 +1,5 @@
+// member.cpp
+using namespace std;
 class Member {
 public:
     int intake;
@@ -6,9 +8,7 @@ public:
     string department;
 };
 
-vector<Member> members;
-
-void addMember() {
+void addMember(vector<Member> members) {
     Member newMember;
     cout << "Enter ID: ";
     cin >> newMember.id;
