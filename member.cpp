@@ -26,4 +26,7 @@ void updateMember(){}
 void removeMember(){}
 void memberList() {}
 void loadMembersFromCSV() {}
-void writeMembersToCSV() {}
+void writeMembersToCSV() {
+    ofstream outFile("members.csv");
+    outFile << "ID,Name,Department\n";
+}

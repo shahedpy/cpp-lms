@@ -55,13 +55,14 @@ int main() {
             returnBook();
             break;
         case 7:
+            writeBooksToCSV();
+            writeMembersToCSV();
             logout(loggedIn);
             break;
         default:
             cout << "Invalid choice" << endl;
         }
     } while (choice != 7);
-    writeBooksToCSV();
     return 0;
 }
 
