@@ -26,12 +26,17 @@ int main() {
     cout << ":::::::::::::::::::::::::::::::::::::::::::::::" << endl;
     int choice;
     do {
-        cout << "1. Add book" << endl;
+        cout << "===== BOOK =====" << endl;
+        cout << "1. Add Book" << endl;
+        cout << "Update Book" << endl;
         cout << "2. Remove book" << endl;
         cout << "3. Book List" << endl;
-        cout << "4. Add Member" << endl;
         cout << "5. Issue book" << endl;
         cout << "6. Return book" << endl;
+
+        cout << "===== MEMBER =====" << endl;
+        cout << "4. Add Member" << endl;
+        cout << "Update Member" << endl;
         cout << "7. Logout" << endl;
         cout << "Enter your choice: ";
         cin >> choice;

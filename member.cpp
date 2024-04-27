@@ -2,10 +2,10 @@
 using namespace std;
 class Member {
 public:
-    int intake;
     string id;
     string name;
     string department;
+    int intake;
 };
 
 void addMember(vector<Member> members) {
