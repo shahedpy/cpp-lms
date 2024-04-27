@@ -43,6 +43,8 @@ void addBook() {
     }
 }
 
+void updateBook(){}
+
 void removeBook() {
     string title;
     cout << "Enter the title of the book to remove: ";

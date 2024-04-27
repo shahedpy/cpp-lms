@@ -21,3 +21,9 @@ void addMember(vector<Member> members) {
     members.push_back(newMember);
     cout << "Member added successfully." << endl;
 }
+
+void updateMember(){}
+void removeMember(){}
+void memberList() {}
+void loadMembersFromCSV() {}
+void writeMembersToCSV() {}
