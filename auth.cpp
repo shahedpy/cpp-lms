@@ -4,9 +4,24 @@ bool login() {
     do {
         cout << "Enter username: ";
         cin >> username;
-        password = getpass("Enter Password: ");
+        cout << "Enter password: ";
+        cin >> password;
 
-        if (username == "admin" && password == "admin") {
+        ifstream file("users.csv");
+        string line;
+        bool found = false;
+        while (getline(file, line)) {
+            size_t pos = line.find(",");
+            string stored_username = line.substr(0, pos);
+            string stored_password = line.substr(pos + 1);
+            if (username == stored_username && password == stored_password) {
+                found = true;
+                break;
+            }
+        }
+        file.close();
+
+        if (found) {
             return true;
         } else {
             cout << "Invalid username or password." << endl;
