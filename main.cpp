@@ -26,17 +26,19 @@ int main() {
     cout << ":::::::::::::::::::::::::::::::::::::::::::::::" << endl;
     int choice;
     do {
-        cout << "===== BOOK =====" << endl;
         cout << "1. Add Book" << endl;
         cout << "Update Book" << endl;
         cout << "2. Remove book" << endl;
         cout << "3. Book List" << endl;
         cout << "5. Issue book" << endl;
         cout << "6. Return book" << endl;
-
-        cout << "===== MEMBER =====" << endl;
+        cout << "Issue History" << endl;
+        cout << "Return History" << endl;
         cout << "4. Add Member" << endl;
         cout << "Update Member" << endl;
+        cout << "Member List" << endl;
+        cout << "Member History" << endl;
+        cout << "Member Details" << endl;
         cout << "7. Logout" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
@@ -70,9 +72,3 @@ int main() {
     } while (choice != 7);
     return 0;
 }
-
-
-
-// Search Functionality
-// Update Book Information
-// Fine Calculation
