@@ -27,19 +27,19 @@ int main() {
     int choice;
     do {
         cout << "1. Add Book" << endl;
-        cout << "Update Book" << endl;
-        cout << "2. Remove book" << endl;
-        cout << "3. Book List" << endl;
+        cout << "2. Update Book" << endl;
+        cout << "3. Remove book" << endl;
+        cout << "4. Book List" << endl;
         cout << "5. Issue book" << endl;
         cout << "6. Return book" << endl;
-        cout << "Issue History" << endl;
-        cout << "Return History" << endl;
-        cout << "4. Add Member" << endl;
-        cout << "Update Member" << endl;
-        cout << "Member List" << endl;
-        cout << "Member History" << endl;
-        cout << "Member Details" << endl;
-        cout << "7. Logout" << endl;
+        cout << "7. Issue History" << endl;
+        cout << "8. Return History" << endl;
+        cout << "9. Add Member" << endl;
+        cout << "10. Update Member" << endl;
+        cout << "11. Member List" << endl;
+        cout << "12. Member History" << endl;
+        cout << "13. Member Details" << endl;
+        cout << "14. Logout" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
         switch (choice) {
@@ -47,21 +47,24 @@ int main() {
             addBook();
             break;
         case 2:
-            removeBook();
+            updateBook();
             break;
         case 3:
-            bookList();
+            removeBook();
             break;
         case 4:
-            addMember(members);
+            bookList();
             break;
         case 5:
-            issueBook(members);
+            addMember(members);
             break;
         case 6:
-            returnBook();
+            issueBook(members);
             break;
         case 7:
+            returnBook();
+            break;
+        case 14:
             writeBooksToCSV();
             writeMembersToCSV();
             logout(loggedIn);
@@ -69,6 +72,6 @@ int main() {
         default:
             cout << "Invalid choice" << endl;
         }
-    } while (choice != 7);
+    } while (choice != 14);
     return 0;
 }

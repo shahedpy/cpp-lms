@@ -43,7 +43,65 @@ void addBook() {
     }
 }
 
-void updateBook(){}
+void updateBook(){
+    string title;
+    cout << "Enter the title of the book to update: ";
+    cin.ignore();
+    getline(cin, title);
+      bool bookFound = false;
+    for (int i = 0; i < library.size(); i++) {
+        if (library[i].title == title) {
+            bookFound = true;
+            cout << "Enter new title (or press enter to keep it unchanged): ";
+            string newTitle;
+            getline(cin, newTitle);
+            if (!newTitle.empty()) {
+                library[i].title = newTitle;
+            }
+
+            cout << "Enter new author (or press enter to keep it unchanged): ";
+            string newAuthor;
+            getline(cin, newAuthor);
+            if (!newAuthor.empty()) {
+                library[i].author = newAuthor;
+            }
+
+            cout << "Enter new publisher (or press enter to keep it unchanged): ";
+            string newPublisher;
+            getline(cin, newPublisher);
+            if (!newPublisher.empty()) {
+                library[i].publisher = newPublisher;
+            }
+
+            cout << "Enter new year (or enter 0 to keep it unchanged): ";
+            int newYear;
+            cin >> newYear;
+            if (newYear != 0) {
+                library[i].year = newYear;
+            }
+
+            cout << "Enter new price (or enter 0 to keep it unchanged): ";
+            int newPrice;
+            cin >> newPrice;
+            if (newPrice != 0) {
+                library[i].price = newPrice;
+            }
+
+            cout << "Enter new stock (or enter 0 to keep it unchanged): ";
+            int newStock;
+            cin >> newStock;
+            if (newStock != 0) {
+                library[i].stock = newStock;
+            }
+
+            cout << "Book updated successfully." << endl;
+            return;
+        }
+    }
+    if (!bookFound) {
+        cout << "Book not found." << endl;
+    }
+}
 
 void removeBook() {
     string title;
