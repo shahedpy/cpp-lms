@@ -8,7 +8,7 @@ public:
     int intake;
 };
 
-void addMember(vector<Member> members) {
+void addMember(vector<Member>& members) {
     Member newMember;
     cout << "Enter ID: ";
     cin >> newMember.id;
