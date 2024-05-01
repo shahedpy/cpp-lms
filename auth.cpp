@@ -1,3 +1,4 @@
+// auth.cpp
 bool login() {
     string username, password;
     int attempts = 0;
