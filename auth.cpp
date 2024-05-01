@@ -38,6 +38,39 @@ void logout(bool& loggedIn){
     cout << "Logged out successfully." << endl;
 }
 
-void changePassword(){
-    
+void changePassword(const string& username) {
+    string oldPassword, newPassword;
+
+    cout << "Enter old password: ";
+    cin >> oldPassword;
+    cout << "Enter new password: ";
+    cin >> newPassword;
+
+    // Read the contents of the users file and store it in a temporary vector
+    ifstream file("users.csv");
+    ofstream tempFile("temp.csv");
+    string line;
+    bool found = false;
+    while (getline(file, line)) {
+        size_t pos = line.find(",");
+        string stored_username = line.substr(0, pos);
+        string stored_password = line.substr(pos + 1);
+        if (username == stored_username && oldPassword == stored_password) {
+            tempFile << username << "," << newPassword << endl;
+            found = true;
+            cout << "Password changed successfully." << endl;
+        } else {
+            tempFile << line << endl;
+        }
+    }
+    file.close();
+    tempFile.close();
+
+    // Remove the old users file and rename the temporary file
+    remove("users.csv");
+    rename("temp.csv", "users.csv");
+
+    if (!found) {
+        cout << "Incorrect old password. Password change failed." << endl;
+    }
 }
