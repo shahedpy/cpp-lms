@@ -72,10 +72,10 @@ int main() {
             addMember(members);
             break;
         case 10:
-            updateMember();
+            updateMember(members);
             break;
         case 11:
-            memberList();
+            memberList(members);
             break;
         case 12:
             memberHistory();
@@ -85,7 +85,7 @@ int main() {
             break;
         case 14:
             writeBooksToCSV();
-            writeMembersToCSV();
+            writeMembersToCSV(members);
             logout(loggedIn);
             break;
         default:
