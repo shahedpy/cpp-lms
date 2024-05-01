@@ -56,13 +56,31 @@ int main() {
             bookList();
             break;
         case 5:
-            addMember(members);
-            break;
-        case 6:
             issueBook(members);
             break;
-        case 7:
+        case 6:
             returnBook();
+            break;
+        case 7:
+            issueHistory();
+            break;
+        case 8:
+            returnHistory();
+            break;
+        case 9:
+            addMember(members);
+            break;
+        case 10:
+            updateMember();
+            break;
+        case 11:
+            memberList();
+            break;
+        case 12:
+            memberHistory();
+            break;
+        case 13:
+            memberDetails();
             break;
         case 14:
             writeBooksToCSV();

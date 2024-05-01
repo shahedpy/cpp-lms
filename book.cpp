@@ -163,6 +163,10 @@ void issueBook(vector<Member> members) {
         cout << "Book not found or out of stock." << endl;
 }
 
+void issueHistory() {
+    cout << "Issue History" << endl;
+}
+
 
 void returnBook() {
     string title;
@@ -206,6 +210,10 @@ void loadBooksFromCSV() {
     } else {
         cout << "Unable to open file to read book data." << endl;
     }
+}
+
+void returnHistory() {
+    cout << "Return History" << endl;
 }
 
 void writeBooksToCSV() {

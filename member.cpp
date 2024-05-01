@@ -25,6 +25,8 @@ void addMember(vector<Member> members) {
 void updateMember(){}
 void removeMember(){}
 void memberList() {}
+void memberHistory() {}
+void memberDetails() {}
 void loadMembersFromCSV() {}
 void writeMembersToCSV() {
     ofstream outFile("members.csv");
