@@ -13,9 +13,10 @@ void addMember(vector<Member> members) {
     cout << "Enter ID: ";
     cin >> newMember.id;
     cout << "Enter name: ";
-    cin >> newMember.name;
+    cin.ignore();
+    getline(cin, newMember.name);
     cout << "Enter department: ";
-    cin >> newMember.department;
+    getline(cin, newMember.department);
     cout << "Enter intake: ";
     cin >> newMember.intake;
     members.push_back(newMember);
