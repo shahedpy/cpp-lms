@@ -37,3 +37,7 @@ void logout(bool& loggedIn){
     loggedIn = false;
     cout << "Logged out successfully." << endl;
 }
+
+void changePassword(){
+    
+}

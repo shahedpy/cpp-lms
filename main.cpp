@@ -40,7 +40,8 @@ int main() {
         cout << "11. Member List" << endl;
         cout << "12. Member History" << endl;
         cout << "13. Member Details" << endl;
-        cout << "14. Logout" << endl;
+        cout << "14. Change Password" << endl;
+        cout << "15. Logout" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
         switch (choice) {
@@ -84,6 +85,9 @@ int main() {
             memberDetails();
             break;
         case 14:
+            changePassword();
+            break;
+        case 15:
             writeBooksToCSV();
             writeMembersToCSV(members);
             logout(loggedIn);
