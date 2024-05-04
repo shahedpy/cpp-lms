@@ -23,6 +23,7 @@ int main() {
     if (!loggedIn) {
         return 1;
     }
+    loadMembersFromCSV(members);
     loadBooksFromCSV();
     cout << ":::::::::::::::::::::::::::::::::::::::::::::::" << endl;
     cout << "::::::::::::::: Welcome to BUBT :::::::::::::::" << endl;
