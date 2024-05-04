@@ -85,7 +85,7 @@ int main() {
             memberDetails();
             break;
         case 14:
-            // changePassword();
+            changePassword();
             break;
         case 15:
             writeBooksToCSV();

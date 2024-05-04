@@ -38,9 +38,11 @@ void logout(bool& loggedIn){
     cout << "Logged out successfully." << endl;
 }
 
-void changePassword(const string& username) {
-    string oldPassword, newPassword;
+void changePassword() {
+    string username, oldPassword, newPassword;
 
+    cout << "Enter username";
+    cin >> username;
     cout << "Enter old password: ";
     cin >> oldPassword;
     cout << "Enter new password: ";
