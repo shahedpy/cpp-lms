@@ -41,14 +41,13 @@ void logout(bool& loggedIn){
 void changePassword() {
     string username, oldPassword, newPassword;
 
-    cout << "Enter username";
+    cout << "Enter username: ";
     cin >> username;
     cout << "Enter old password: ";
     cin >> oldPassword;
     cout << "Enter new password: ";
     cin >> newPassword;
 
-    // Read the contents of the users file and store it in a temporary vector
     ifstream file("users.csv");
     ofstream tempFile("temp.csv");
     string line;
@@ -68,7 +67,6 @@ void changePassword() {
     file.close();
     tempFile.close();
 
-    // Remove the old users file and rename the temporary file
     remove("users.csv");
     rename("temp.csv", "users.csv");
 

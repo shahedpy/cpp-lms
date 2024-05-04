@@ -69,13 +69,15 @@ void memberList(const vector<Member>& members) {
         cout << "No members available." << endl;
     } else {
         cout << "List of Members:" << endl;
+        
         for (const auto& member : members) {
+            cout << "---------------------------" << endl;
             cout << "ID:\t\t" << member.id << endl;
             cout << "Name:\t\t" << member.name << endl;
             cout << "Department:\t" << member.department << endl;
             cout << "Intake:\t\t" << member.intake << endl;
-            cout << "---------------------------" << endl;
         }
+        cout << "---------------------------" << endl;
     }
 }
 

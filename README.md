@@ -4,6 +4,27 @@
 ## How To Run This Project
 - Run `main.cpp` file
 
+## Features
+- **Auth**
+  - Login
+  - Logout
+  - Change Password
+
+- **Book**
+  - Add Book
+  - Update Book
+  - Remove Book
+  - Book List
+  - Issue Book
+  - Return Book
+
+- **Member**
+  - Add Member
+  - Update Member
+  - Remove Member
+  - Member List
+
+
 ## Username & Passwords
 | SL | Username | Password  |
 | 1  | admin    | admin     |

@@ -5,6 +5,9 @@
 #include <sstream>
 #include <vector>
 #include <unistd.h>
+#include <chrono>
+#include <ctime>
+
 
 #include "book.cpp"
 #include "auth.cpp"
@@ -27,21 +30,23 @@ int main() {
     cout << ":::::::::::::::::::::::::::::::::::::::::::::::" << endl;
     int choice;
     do {
-        cout << "1. Add Book" << endl;
-        cout << "2. Update Book" << endl;
-        cout << "3. Remove book" << endl;
-        cout << "4. Book List" << endl;
-        cout << "5. Issue book" << endl;
-        cout << "6. Return book" << endl;
-        cout << "7. Issue History" << endl;
-        cout << "8. Return History" << endl;
-        cout << "9. Add Member" << endl;
-        cout << "10. Update Member" << endl;
-        cout << "11. Member List" << endl;
-        cout << "12. Member History" << endl;
-        cout << "13. Member Details" << endl;
-        cout << "14. Change Password" << endl;
-        cout << "15. Logout" << endl;
+        cout << "------------------------" << endl;
+        cout << "|  1 | Add Book        |" << endl;
+        cout << "|  2 | Update Book     |" << endl;
+        cout << "|  3 | Remove Book     |" << endl;
+        cout << "|  4 | Book List       |" << endl;
+        cout << "|  5 | Issue Book      |" << endl;
+        cout << "|  6 | Return Book     |" << endl;
+        cout << "|  7 | Issue History   |" << endl;
+        cout << "|  8 | Return History  |" << endl;
+        cout << "|  9 | Add Member      |" << endl;
+        cout << "| 10 | Update Member   |" << endl;
+        cout << "| 11 | Member List     |" << endl;
+        cout << "| 12 | Member History  |" << endl;
+        cout << "| 13 | Member Details  |" << endl;
+        cout << "| 14 | Change Password |" << endl;
+        cout << "| 15 | Logout          |" << endl;
+        cout << "------------------------" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
         switch (choice) {
