@@ -41,7 +41,12 @@ void loadReturnRecordsFromCSV(vector<ReturnRecord>& returnRecord) {
     ifstream inFile("return_records.csv");
     if (inFile.is_open()) {
         string line;
+        bool isFirstRow = true;
         while (getline(inFile, line)) {
+            if (isFirstRow) {
+                isFirstRow = false;
+                continue;
+            }
             ReturnRecord record;
             stringstream ss(line);
             getline(ss, record.bookTitle, ',');

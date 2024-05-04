@@ -38,10 +38,16 @@ void issueHistory(vector<IssueRecord>& issueRecord) {
 }
 
 void loadIssueRecordsFromCSV(vector<IssueRecord>& issueRecord) {
+
     ifstream inFile("issue_records.csv");
     if (inFile.is_open()) {
         string line;
+        bool isFirstRow = true;
         while (getline(inFile, line)) {
+            if (isFirstRow) {
+                isFirstRow = false;
+                continue;
+            }
             IssueRecord record;
             stringstream ss(line);
             getline(ss, record.bookTitle, ',');
