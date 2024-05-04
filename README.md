@@ -37,6 +37,6 @@
 |----|-------------|------------------------|
 | 1  | 20234203070 | Shahed Mohammad Hridoy |
 | 2  | 20234203069 | Sawda Bintha Jahan     |
-| 3  | 20234203068 | Shamsi Juma            |
-| 4  | 20234203072 | Imran                  |
-| 5  | 202342030   | Ilma                   |
+| 3  | 20234203072 | Md Imran Hossain       |
+| 4  | 20234203068 | Shamsi Juma            |
+| 5  | 20234203059 | Ilma Khanam            |
