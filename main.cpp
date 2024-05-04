@@ -49,10 +49,8 @@ int main() {
         cout << "|  9 | Add Member      |" << endl;
         cout << "| 10 | Update Member   |" << endl;
         cout << "| 11 | Member List     |" << endl;
-        cout << "| 12 | Member History  |" << endl;
-        cout << "| 13 | Member Details  |" << endl;
-        cout << "| 14 | Change Password |" << endl;
-        cout << "| 15 | Logout          |" << endl;
+        cout << "| 12 | Change Password |" << endl;
+        cout << "| 13 | Logout          |" << endl;
         cout << "------------------------" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
@@ -91,15 +89,9 @@ int main() {
             memberList(members);
             break;
         case 12:
-            memberHistory();
-            break;
-        case 13:
-            memberDetails();
-            break;
-        case 14:
             changePassword();
             break;
-        case 15:
+        case 13:
             writeBooksToCSV(library);
             writeMembersToCSV(members);
             writeIssueRecordsToCSV(issueRecord);
@@ -109,6 +101,6 @@ int main() {
         default:
             cout << "Invalid choice" << endl;
         }
-    } while (choice != 15);
+    } while (choice != 13);
     return 0;
 }

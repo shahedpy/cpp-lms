@@ -81,10 +81,6 @@ void memberList(const vector<Member>& members) {
     }
 }
 
-void memberHistory() {}
-
-void memberDetails() {}
-
 void loadMembersFromCSV(vector<Member>& members) {
     ifstream inFile("members.csv");
     if (inFile.is_open()) {

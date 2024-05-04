@@ -64,7 +64,6 @@ void writeIssueRecordsToCSV(vector<IssueRecord>& issueRecord) {
             outFile << record.bookTitle << "," << record.memberId << "," << record.date << "\n";
         }
         outFile.close();
-        cout << "Issue records written to CSV successfully." << endl;
     } else {
         cout << "Unable to open file to write issue records." << endl;
     }

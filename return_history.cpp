@@ -64,7 +64,6 @@ void writeReturnRecordsToCSV(vector<ReturnRecord>& returnRecord) {
             outFile << record.bookTitle << "," << record.memberId << "," << record.date << "\n";
         }
         outFile.close();
-        cout << "Return records written to CSV successfully." << endl;
     } else {
         cout << "Unable to open file to write return records." << endl;
     }
