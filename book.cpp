@@ -1,6 +1,7 @@
 // book.cpp
 #include "member.cpp"
 #include "issue_history.cpp"
+#include "return_history.cpp"
 
 using namespace std;
 
@@ -136,7 +137,7 @@ void bookList(vector<Book>& library){
     }
 }
 
-void issueBook(vector<Member> members, vector<Book>& library) {
+void issueBook(vector<Member> members, vector<Book>& library, vector<IssueRecord>& issueRecord) {
     string title, memberId;
     cout << "Enter the title of the book to issue: ";
     cin >> title;
@@ -151,7 +152,7 @@ void issueBook(vector<Member> members, vector<Book>& library) {
                 if (members[j].id == memberId) {
                     memberFound = true;
                     cout << "Book issued successfully to " << members[j].name << "." << endl;
-                    addIssueRecord(title, memberId);
+                    addIssueRecord(title, memberId, issueRecord);
                     library[i].stock--;
                     return;
                 }
@@ -166,12 +167,18 @@ void issueBook(vector<Member> members, vector<Book>& library) {
 
 
 
-void returnBook(vector<Book>& library) {
-    string title;
+void returnBook(vector<Book>& library, vector<ReturnRecord>& returnRecord) {
+    string title, memberId;
     cout << "Enter the title of the book to return: ";
-    cin >> title;
+    cin.ignore();
+    getline(cin, title);
+    cout << "Enter member ID: ";
+    cin.ignore();
+    getline(cin, memberId);
+
     for (int i = 0; i < library.size(); i++) {
         if (library[i].title == title) {
+            addReturnRecord(title, memberId, returnRecord);
             library[i].stock++;
             cout << "Book returned successfully." << endl;
             return;
@@ -208,10 +215,6 @@ void loadBooksFromCSV(vector<Book>& library) {
     } else {
         cout << "Unable to open file to read book data." << endl;
     }
-}
-
-void returnHistory() {
-    cout << "Return History" << endl;
 }
 
 void writeBooksToCSV(vector<Book>& library) {

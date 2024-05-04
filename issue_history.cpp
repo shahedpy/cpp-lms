@@ -7,9 +7,7 @@ class IssueRecord {
         string date;
 };
 
-vector<IssueRecord> issueRecord;
-
-void addIssueRecord(const string& bookTitle, const string& memberId){
+void addIssueRecord(const string& bookTitle, const string& memberId, vector<IssueRecord>& issueRecord){
     IssueRecord ir;
     ir.bookTitle = bookTitle;
     ir.memberId = memberId;
@@ -24,7 +22,7 @@ void addIssueRecord(const string& bookTitle, const string& memberId){
     issueRecord.push_back(ir);
 }
 
-void issueHistory() {
+void issueHistory(vector<IssueRecord>& issueRecord) {
     if (issueRecord.empty()) {
         cout << "No issue history available." << endl;
     } else {
@@ -39,7 +37,7 @@ void issueHistory() {
     }
 }
 
-void loadIssueRecordsFromCSV() {
+void loadIssueRecordsFromCSV(vector<IssueRecord>& issueRecord) {
     ifstream inFile("issue_records.csv");
     if (inFile.is_open()) {
         string line;
@@ -58,7 +56,7 @@ void loadIssueRecordsFromCSV() {
 }
 
 
-void writeIssueRecordsToCSV() {
+void writeIssueRecordsToCSV(vector<IssueRecord>& issueRecord) {
     ofstream outFile("issue_records.csv");
     if (outFile.is_open()) {
         outFile << "BookTitle,MemberId,Date\n";

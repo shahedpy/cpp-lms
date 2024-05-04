@@ -19,6 +19,8 @@ int main() {
 
     vector<Member> members;
     vector<Book> library;
+    vector<IssueRecord> issueRecord;
+    vector<ReturnRecord> returnRecord;
 
 
     bool loggedIn = login();
@@ -27,7 +29,8 @@ int main() {
     }
     loadMembersFromCSV(members);
     loadBooksFromCSV(library);
-    loadIssueRecordsFromCSV();
+    loadIssueRecordsFromCSV(issueRecord);
+    loadReturnRecordsFromCSV(returnRecord);
     cout << ":::::::::::::::::::::::::::::::::::::::::::::::" << endl;
     cout << "::::::::::::::: Welcome to BUBT :::::::::::::::" << endl;
     cout << ":::::::::: Library Management System ::::::::::" << endl;
@@ -67,16 +70,16 @@ int main() {
             bookList(library);
             break;
         case 5:
-            issueBook(members, library);
+            issueBook(members, library, issueRecord);
             break;
         case 6:
-            returnBook(library);
+            returnBook(library, returnRecord);
             break;
         case 7:
-            issueHistory();
+            issueHistory(issueRecord);
             break;
         case 8:
-            returnHistory();
+            returnHistory(returnRecord);
             break;
         case 9:
             addMember(members);
@@ -99,7 +102,8 @@ int main() {
         case 15:
             writeBooksToCSV(library);
             writeMembersToCSV(members);
-            writeIssueRecordsToCSV();
+            writeIssueRecordsToCSV(issueRecord);
+            writeReturnRecordsToCSV(returnRecord);
             logout(loggedIn);
             break;
         default:
