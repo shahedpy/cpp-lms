@@ -1,5 +1,6 @@
 // book.cpp
 #include "member.cpp"
+#include "issue_history.cpp"
 
 using namespace std;
 
@@ -12,33 +13,8 @@ class Book {
         int price;
         int stock;
 };
-class IssueRecord {
-    public:
-        string bookTitle;
-        string memberId;
-        string date;
-};
 
-vector<Book> library;
-vector<IssueRecord> issueRecord;
-
-void addIssueRecord(const string& bookTitle, const string& memberId){
-    IssueRecord ir;
-    ir.bookTitle = bookTitle;
-    ir.memberId = memberId;
-
-    auto now = chrono::system_clock::now();
-    time_t currentTime = chrono::system_clock::to_time_t(now);
-    char dateString[11];
-    strftime(dateString, sizeof(dateString), "%Y-%m-%d", localtime(&currentTime));
-
-    ir.date = dateString;
-
-    issueRecord.push_back(ir);
-}
-
-
-void addBook() {
+void addBook(vector<Book>& library) {
     Book newBook;
     cout << "Enter title: ";
     cin.ignore();
@@ -66,7 +42,7 @@ void addBook() {
     }
 }
 
-void updateBook(){
+void updateBook(vector<Book>& library){
     string title;
     cout << "Enter the title of the book to update: ";
     cin.ignore();
@@ -126,7 +102,7 @@ void updateBook(){
     }
 }
 
-void removeBook() {
+void removeBook(vector<Book>& library) {
     string title;
     cout << "Enter the title of the book to remove: ";
     cin.ignore();
@@ -142,7 +118,7 @@ void removeBook() {
     cout << "Book not found." << endl;
 }
 
-void bookList(){
+void bookList(vector<Book>& library){
     if (library.empty()) {
         cout << "No books available in the library." << endl;
     } else {
@@ -160,7 +136,7 @@ void bookList(){
     }
 }
 
-void issueBook(vector<Member> members) {
+void issueBook(vector<Member> members, vector<Book>& library) {
     string title, memberId;
     cout << "Enter the title of the book to issue: ";
     cin >> title;
@@ -188,24 +164,9 @@ void issueBook(vector<Member> members) {
         cout << "Book not found or out of stock." << endl;
 }
 
-void issueHistory() {
-    if (issueRecord.empty()) {
-        cout << "No issue history available." << endl;
-    } else {
-        cout << "Issue History:" << endl;
-        for (const auto &record : issueRecord) {
-            cout << "---------------------------" << endl;
-            cout << "Book Title:\t" << record.bookTitle << endl;
-            cout << "Member ID:\t" << record.memberId << endl;
-            cout << "Date Issued:\t" << record.date << endl;
-        }
-        cout << "---------------------------" << endl;
-    }
-}
 
 
-
-void returnBook() {
+void returnBook(vector<Book>& library) {
     string title;
     cout << "Enter the title of the book to return: ";
     cin >> title;
@@ -219,7 +180,7 @@ void returnBook() {
     cout << "Book not found." << endl;
 }
 
-void loadBooksFromCSV() {
+void loadBooksFromCSV(vector<Book>& library) {
     ifstream inFile("books.csv");
     if (inFile.is_open()) {
         string line;
@@ -248,44 +209,12 @@ void loadBooksFromCSV() {
         cout << "Unable to open file to read book data." << endl;
     }
 }
-void writeIssueRecordsToCSV() {
-    ofstream outFile("issue_records.csv");
-    if (outFile.is_open()) {
-        outFile << "BookTitle,MemberId,Date\n";
-        for (const auto &record : issueRecord) {
-            outFile << record.bookTitle << "," << record.memberId << "," << record.date << "\n";
-        }
-        outFile.close();
-        cout << "Issue records written to CSV successfully." << endl;
-    } else {
-        cout << "Unable to open file to write issue records." << endl;
-    }
-}
-
-
-void loadIssueRecordsFromCSV() {
-    ifstream inFile("issue_records.csv");
-    if (inFile.is_open()) {
-        string line;
-        while (getline(inFile, line)) {
-            IssueRecord record;
-            stringstream ss(line);
-            getline(ss, record.bookTitle, ',');
-            getline(ss, record.memberId, ',');
-            getline(ss, record.date, ',');
-            issueRecord.push_back(record);
-        }
-        inFile.close();
-    } else {
-        cout << "Unable to open file to read issue records." << endl;
-    }
-}
 
 void returnHistory() {
     cout << "Return History" << endl;
 }
 
-void writeBooksToCSV() {
+void writeBooksToCSV(vector<Book>& library) {
     ofstream outFile("books.csv");
     if (outFile.is_open()) {
         outFile << "Title,Author,Publisher,Year,Price,Stock\n";

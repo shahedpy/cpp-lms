@@ -12,11 +12,13 @@
 #include "book.cpp"
 #include "auth.cpp"
 
+
 using namespace std;
 
 int main() {
 
     vector<Member> members;
+    vector<Book> library;
 
 
     bool loggedIn = login();
@@ -24,7 +26,8 @@ int main() {
         return 1;
     }
     loadMembersFromCSV(members);
-    loadBooksFromCSV();
+    loadBooksFromCSV(library);
+    loadIssueRecordsFromCSV();
     cout << ":::::::::::::::::::::::::::::::::::::::::::::::" << endl;
     cout << "::::::::::::::: Welcome to BUBT :::::::::::::::" << endl;
     cout << ":::::::::: Library Management System ::::::::::" << endl;
@@ -52,22 +55,22 @@ int main() {
         cin >> choice;
         switch (choice) {
         case 1:
-            addBook();
+            addBook(library);
             break;
         case 2:
-            updateBook();
+            updateBook(library);
             break;
         case 3:
-            removeBook();
+            removeBook(library);
             break;
         case 4:
-            bookList();
+            bookList(library);
             break;
         case 5:
-            issueBook(members);
+            issueBook(members, library);
             break;
         case 6:
-            returnBook();
+            returnBook(library);
             break;
         case 7:
             issueHistory();
@@ -94,8 +97,9 @@ int main() {
             changePassword();
             break;
         case 15:
-            writeBooksToCSV();
+            writeBooksToCSV(library);
             writeMembersToCSV(members);
+            writeIssueRecordsToCSV();
             logout(loggedIn);
             break;
         default:
