@@ -140,7 +140,8 @@ void bookList(vector<Book>& library){
 void issueBook(vector<Member> members, vector<Book>& library, vector<IssueRecord>& issueRecord) {
     string title, memberId;
     cout << "Enter the title of the book to issue: ";
-    cin >> title;
+    cin.ignore();
+    getline(cin, title);
     cout << "Enter member ID: ";
     cin >> memberId;
     
