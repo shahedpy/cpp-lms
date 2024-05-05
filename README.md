@@ -27,6 +27,7 @@
 
 ## Username & Passwords
 | SL | Username | Password  |
+|----|----------|-----------|
 | 1  | admin    | admin     |
 | 2  | user1    | password1 |
 | 3  | user2    | password2 |
