@@ -42,10 +42,8 @@ void changePassword() {
 
     cout << "Enter username: ";
     cin >> username;
-    cout << "Enter old password: ";
-    cin >> oldPassword;
-    cout << "Enter new password: ";
-    cin >> newPassword;
+    oldPassword = getpass("Enter old password: ");
+    newPassword = getpass("Enter new password: ");
 
     ifstream file("users.csv");
     ofstream tempFile("temp.csv");
