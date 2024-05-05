@@ -5,8 +5,7 @@ bool login() {
     do {
         cout << "Enter username: ";
         cin >> username;
-        cout << "Enter password: ";
-        cin >> password;
+        password = getpass("Enter Password: ");
 
         ifstream file("users.csv");
         string line;
