@@ -33,4 +33,4 @@
 | 4  | shahed   | hridoy    |
 
 
-![er_diagram](/er_diagram.jpg?raw=true)
+![er_diagram](files/er_diagram.jpg?raw=true)
