@@ -3,10 +3,6 @@
 ## How To Run This Project
 - Run `main.cpp` file
 
-
-## ER Diagram
-![er_diagram](files/er_diagram.jpg?raw=true)
-
 ## Features
 - **Auth**
   - Login
@@ -36,3 +32,6 @@
 | 3  | user2    | password2 |
 | 4  | shahed   | hridoy    |
 
+
+## ER Diagram
+![er_diagram](files/er_diagram.jpg?raw=true)
