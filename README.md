@@ -1,5 +1,4 @@
-# Bangladesh University of Business & Technology
-## Library Management System
+# Library Management System
 
 ## How To Run This Project
 - Run `main.cpp` file
@@ -32,3 +31,6 @@
 | 2  | user1    | password1 |
 | 3  | user2    | password2 |
 | 4  | shahed   | hridoy    |
+
+
+![er_diagram](/er_diagram.jpg?raw=true)
